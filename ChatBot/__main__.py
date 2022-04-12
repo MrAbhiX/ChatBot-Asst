@@ -13,10 +13,28 @@
 • `{i}listai`
    List the currently AI added users.
 """
+import asyncio
+import os
+import time
+from random import choice
 
+import requests
+from pyUltroid import *
+from pyUltroid._misc._assistant import asst_cmd, callback, in_pattern
+from pyUltroid._misc._decorators import ultroid_cmd
+from pyUltroid._misc._wrappers import eod, eor
+from pyUltroid.dB import DEVLIST, ULTROID_IMAGES
+from pyUltroid.functions.helper import *
+from pyUltroid.functions.info import *
+from pyUltroid.functions.misc import *
+from pyUltroid.functions.tools import *
+from pyUltroid.version import __version__, ultroid_version
+from telethon import Button, events
+from telethon.tl import functions, types
 from pyUltroid.functions.tools import get_chatbot_reply
 
-from . import eod, get_string, inline_mention, udB, ultroid_cmd
+from .string import get_string
+
 
 
 @ultroid_cmd(pattern="repai")
